@@ -1,0 +1,22 @@
+version: "3"
+services:
+  app:
+    build:
+      context: ./service-with-data
+      dockerfile: Dockerfile
+    stdin_open: true
+    tty: true
+    volumes:
+      - app-data:/data
+  app2:
+    build:
+      context: ./service-with-data-no-volume
+      dockerfile: Dockerfile
+    stdin_open: true
+    tty: true
+    volumes:
+      - app-data2:/data
+
+volumes:
+  app-data:
+  app-data2:
